@@ -12,6 +12,11 @@ public class SalaryService {
     @Autowired
     private PensionService pensionService;
 
+    public SalaryService(BrazilianTaxService brazilianTaxService, PensionService pensionService) {
+        this.pensionService = pensionService;
+        this.taxService = brazilianTaxService;
+    }
+
     // inversão de controle e injeção de dependência com um construtor
     /*
     public SalaryService(TaxService taxService, PensionService pensionService) {

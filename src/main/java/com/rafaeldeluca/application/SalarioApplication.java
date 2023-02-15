@@ -1,6 +1,8 @@
 package com.rafaeldeluca.application;
 
 import com.rafaeldeluca.entities.Employee;
+import com.rafaeldeluca.services.BrazilianTaxService;
+import com.rafaeldeluca.services.PensionService;
 import com.rafaeldeluca.services.SalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +17,12 @@ public class SalarioApplication implements CommandLineRunner {
 	// declarando dependência do salary Service
 	@Autowired
 	private SalaryService salaryService;
+
+	@Autowired
+	private BrazilianTaxService brazilianTaxService;
+
+	@Autowired
+	private PensionService pensionService;
 
 	/*
 	public SalarioApplication(SalaryService salaryService) {
@@ -38,5 +46,10 @@ public class SalarioApplication implements CommandLineRunner {
 		Employee employee01 = new Employee("Rafael de Luca", 15000.00);
 		double salarioLiquido = salaryService.netSalary(employee01);
 		System.out.println("Salário Líquido: " + salarioLiquido);
+
+		SalaryService brazilianSalaryService = new SalaryService(brazilianTaxService, pensionService);
+		// usando a classe brazilainTaxService deve ser menos o salário líquido, visto que desconto de imposto é maior
+		System.out.println("Salário líquido Brasileiro: " + brazilianSalaryService.netSalary(employee01));
+
 	}
 }
