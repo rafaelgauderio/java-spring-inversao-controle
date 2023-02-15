@@ -1,14 +1,19 @@
 package com.rafaeldeluca.salario;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SalarioApplication {
+public class SalarioApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 
 		SpringApplication.run(SalarioApplication.class, args);
 	}
 
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("Salário Líquido");
+	}
 }
