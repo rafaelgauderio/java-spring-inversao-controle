@@ -2,6 +2,7 @@ package com.rafaeldeluca.application;
 
 import com.rafaeldeluca.entities.Employee;
 import com.rafaeldeluca.services.SalaryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,11 +13,14 @@ import org.springframework.context.annotation.ComponentScan;
 public class SalarioApplication implements CommandLineRunner {
 
 	// declarando dependência do salary Service
+	@Autowired
 	private SalaryService salaryService;
 
+	/*
 	public SalarioApplication(SalaryService salaryService) {
 		this.salaryService = salaryService;
 	}
+	*/
 
 	public static void main(String[] args) {
 
